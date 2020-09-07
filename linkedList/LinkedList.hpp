@@ -36,34 +36,39 @@ template <typename T>
 bool LinkedList<T>::search(T value) const
 {
 	Node<T>* temp = m_front;
-	bool isFound = false;
-
-	if(temp == nullptr)	//Checks to see if a Linked List Exists
-	{
-		return false;
-	}
-	else
-	{
-		nodeValue<T> = temp->getValue();
-
-		if(m_size == 1)
-		{
-			if(nodeValue == value)
-				return true;
-			else
-				return false;
-		}
-		else
-		{
-			while(temp->getNext() != nullptr)
-			{//W
-				if(nodeValue == value)
-					return true;
-				else
-					temp = temp->getNext();
-			}//W
-	  }
-	}
+	    /** TODO
+	        Fix this method
+	    */
+	    if (this->isEmpty())
+	    {
+	        return false;
+	    }
+	    else
+	    {
+	        while(1)
+	        {
+	            if(m_size == 1)
+	            {
+	                delete m_front;
+	                m_size--;
+	                m_front = nullptr;
+	                return true;
+	            }
+	            else if(temp->getNext() != nullptr)
+	            {
+	                secondintoLast = temp;
+	                temp = temp->getNext();
+	            }
+	            else
+	            {
+	                lastNode = temp;
+	                temp = nullptr;
+	                delete lastNode;
+	                secondintoLast->setNext(nullptr);
+	                m_size--;
+	            }
+	        }
+	    }
 }
 
 template <typename T>
