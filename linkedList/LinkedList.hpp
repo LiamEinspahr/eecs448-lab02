@@ -35,7 +35,7 @@ int LinkedList<T>::size() const
 template <typename T>
 bool LinkedList<T>::search(T value) const
 {
-	Node<T>* temp = m_front;
+    Node<T>* temp = m_front;
 
 	if(temp == nullptr)
 	{
@@ -51,7 +51,10 @@ bool LinkedList<T>::search(T value) const
 				}
 				else
 				{
-					temp = temp->getNext();
+					if(temp->getNext() == nullptr)
+						return false;
+					else
+						temp = temp->getNext();
 				}
 		}
 
